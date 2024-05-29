@@ -1,6 +1,7 @@
 import torch
 import torch.distributed as dist
 import argparse
+from utilsNersc.distributed import init_workers
 
 def run(world_size, rank):
     tensor = torch.zeros(1)
@@ -23,6 +24,8 @@ def run(world_size, rank):
 
 def main():
     parser = argparse.ArgumentParser()
+
+    rank, n_ranks = init_workers("nccl")
 
 if __name__ == "__main__":
     main()
