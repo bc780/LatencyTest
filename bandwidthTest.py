@@ -6,7 +6,7 @@ import os
 import time
 
 from utilsNersc.logging import config_logging
-from utilsNersc.distributed import init_workers
+from utilsNersc.distributed import init_workers, try_barrier
 
 
 # max and base of exponents to modify data size
@@ -14,33 +14,38 @@ maxExp = 8
 base = 4
 
 def run(world_size, rank):
+    
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    tensor = torch.zeros(1).to(device)
+    tensor = torch.zeros(250*(base**maxExp)).to(device)
     for i in range(0,rank):
         #recv data of all ranks before
         logging.info("Accepting from rank %i", i)
         for j in range(maxExp):
+            logging.info("Hit barrier")
+            try_barrier()
+            dist.recv(tensor=tensor,src=i, tag=i*world_size+j)
             start  = time.time()
-            dist.recv(tensor=tensor,src=i)
             logging.info("recv %i -> %i # %i at %f", i, rank, j, start)
-    for i in range(world_size):
-        #send data to all ranks
-        #ensure it does not send to itself
-        if i != rank:
-            logging.info("Sending to rank %i", i)
-            for j in range(maxExp):
+    for j in range(maxExp):
+        logging.info("Hit barrier")
+        try_barrier()
+        for i in range(world_size):
+            #send data to all ranks
+            #ensure it does not send to itself
+            if i != rank:           
             #generate random tensor of correct size
-                tensor = torch.rand(250*(base**j)).to(device)
+                temp = torch.rand(250*(base**j)).to(device)
+                dist.send(tensor=temp,dst=i,tag=rank*world_size+j)
                 start  = time.time()
-                dist.send(tensor=tensor,dst=i)
-                logging.info("sent %i -> %i #%i at %f", rank, i, j, start)
+                logging.info("sent %i -> %i # %i at %f", rank, i, j, start)
     for i in range(rank+1,world_size):
         #recv data of all ranks after
         logging.info("Accepting from rank %i", i)
         for j in range(maxExp):
+            try_barrier()
+            dist.recv(tensor=tensor,src=i,tag=i*world_size+j)
             start = time.time()
-            dist.recv(tensor=tensor,src=i)
-            logging.info("recv %i -> %i #%i at %f", i, rank, j, start)
+            logging.info("recv %i -> %i # %i at %f", i, rank, j, start)
 
     exit()
 
