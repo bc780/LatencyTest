@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -N 4
+#SBATCH -N 1
 #SBATCH -C gpu
 #SBATCH -G 4
 #SBATCH -q debug
@@ -20,4 +20,4 @@ export MASTER_PORT=29500
 
 #run the application:
 #applications may perform better with --gpu-bind=none instead of --gpu-bind=single:1 
-srun -n 4 -c 128 --cpu_bind=cores -G 4 --gpu-bind=none python bandwidthTest.py
+srun -n 4 -c 32 --cpu_bind=cores -G 4 --gpu-bind=single:1 python bandwidthTest.py
