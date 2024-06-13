@@ -1,12 +1,12 @@
 #!/bin/bash
-#SBATCH -N 2
+#SBATCH -N 4
 #SBATCH -C gpu
-#SBATCH -G 8
+#SBATCH -G 16
 #SBATCH -q debug
 #SBATCH -J BandwidthTestDebug
 #SBATCH --mail-user=bc780@scarletmail.rutgers.edu
 #SBATCH --mail-type=ALL
-#SBATCH -t 00:05:00
+#SBATCH -t 00:10:00
 #SBATCH -A m4410_g
 
 #OpenMP settings:
@@ -21,4 +21,4 @@ export NCCL_DEBUG=INFO
 
 #run the application:
 #applications may perform better with --gpu-bind=none instead of --gpu-bind=single:1 
-srun -n 8 -c 32 --cpu_bind=cores -G 8 --gpu-bind=single:1 python bandwidthTest.py
+srun -n 16 -c 32 --cpu_bind=cores -G 16 --gpu-bind=single:1 python bandwidthTest.py
