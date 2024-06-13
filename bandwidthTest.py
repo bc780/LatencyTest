@@ -18,50 +18,48 @@ def run(world_size, rank):
     
 
     device = torch.device('cuda' if cuda.is_available() else 'cpu')
-    name = cuda.get_device_properties(device)
-    logging.info("Device name: %s", name)
     dist.barrier()
     logging.info("Sync time")
-    t0 = time.time()
     for i in range(0,rank):
         #recv data of all ranks before
         logging.info("Accepting from rank %i", i)
         for j in range(maxExp):
-            logging.info("Rank %i Hit barrier", rank, )
+            buffer = torch.zeros(250*(base**j)).to(device)
             dist.barrier()
-            logging.info("Rank %i Passed barrier", rank)
+            t0 = time.perf_counter()
 
-            buffer = torch.rand(250*(base**j)).to(device)
+
             dist.recv(tensor=buffer, src=i)
-            start  = time.time() - t0
+            logging.info("garbage %i", buffer[-1]-buffer[-2])
+            start  = time.perf_counter() - t0
             logging.info("recv %i -> %i # %i at %f, %f %f", i, rank, j, start, buffer[0], buffer[1])
             
     logging.info("Sending from rank %i", rank)
     for j in range(maxExp):
-        logging.info("Rank %i Hit barrier", rank)
+        temp = torch.rand(250*(base**j)).to(device)
         dist.barrier()
-        logging.info("Rank %i Passed barrier", rank)
+        t0 = time.perf_counter()
         for i in range(world_size):
             #send data to all ranks
             #ensure it does not send to itself
             if i != rank:           
             #generate random tensor of correct size
-                temp = torch.rand(250*(base**j)).to(device)
+
                 dist.send(tensor=temp,dst=i)
-                start  = time.time() - t0
+                start  = time.perf_counter() - t0
                 logging.info("sent %i -> %i # %i at %f, %f %f", rank, i, j, start, temp[0], temp[1])
 
     for i in range(rank+1,world_size):
         #recv data of all ranks after
         logging.info("Accepting from rank %i", i)
         for j in range(maxExp):
-            logging.info("Rank %i Hit barrier", rank)
+            buffer = torch.zeros(250*(base**j)).to(device)
             dist.barrier()
-            logging.info("Rank %i Passed barrier", rank)
+            t0 = time.perf_counter()
 
-            buffer = torch.rand(250*(base**j)).to(device)
             dist.recv(tensor=buffer, src=i)
-            start = time.time() - t0
+            logging.info("garbage %i", buffer[-1]-buffer[-2])
+            start = time.perf_counter() - t0
             logging.info("recv %i -> %i # %i at %f, %f %f", i, rank, j, start, buffer[0], buffer[1])
 
     # dist.barrier()
