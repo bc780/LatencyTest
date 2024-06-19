@@ -11,8 +11,8 @@ from utilsNersc.distributed import init_workers
 
 
 # max and base of exponents to modify data size
-maxExp = 6
-base = 4
+maxExp = 1
+base = 65536
 
 def run(world_size, rank):
     
@@ -28,16 +28,26 @@ def run(world_size, rank):
             del buffer
             cuda.empty_cache()
             buffer = torch.zeros(250*(base**j)).to(device)
-            for k in range(0,rank):
+            for k in range(0,rank-1):
+                dist.barrier()
                 dist.barrier()
 
-            t0 = time.perf_counter_ns()
+            dist.barrier()
+            # before = cuda.Event(enable_timing=True)
+            # after = cuda.Event(enable_timing=True)
+            
+            before = time.perf_counter_ns()
             dist.recv(tensor=buffer, src=i)
-            logging.info("garbage %i", buffer[-1]-buffer[-2])
-            start  = time.perf_counter_ns() - t0
+            checksum = buffer[-1] + buffer[-2] + buffer[-3]
+            logging.info("CHECKSUM %i %i %i: %f", i, rank, j, checksum)
+            dist.barrier()
+            after = time.perf_counter_ns()
+
+            start  = after - before
             logging.info("recv %i -> %i # %i at %i, %f %f", i, rank, j, start, buffer[0], buffer[1])
 
             for k in range(rank+1,world_size):
+                dist.barrier()
                 dist.barrier()
             
     logging.info("Sending from rank %i", rank)
@@ -50,9 +60,18 @@ def run(world_size, rank):
             if i != rank:           
             #generate random tensor of correct size
                 dist.barrier()
-                t0 = time.perf_counter_ns()
+
+                # before = cuda.Event(enable_timing=True)
+                # after = cuda.Event(enable_timing=True)
+
+                before = time.perf_counter_ns()
                 dist.send(tensor=temp,dst=i)
-                start  = time.perf_counter_ns() - t0
+                after = time.perf_counter_ns()
+                checksum = temp[-1] + temp[-2] + temp[-3]
+                logging.info("CHECKSUM %i %i %i: %f", rank, i, j, checksum)
+                dist.barrier()
+
+                start  = after-before
                 logging.info("sent %i -> %i # %i at %i, %f %f", rank, i, j, start, temp[0], temp[1])
 
     for i in range(rank+1,world_size):
@@ -62,16 +81,27 @@ def run(world_size, rank):
             del buffer
             cuda.empty_cache()
             buffer = torch.zeros(250*(base**j)).to(device)
-            for k in range(0,rank+1):
+            for k in range(0,rank):
+                dist.barrier()
                 dist.barrier()
 
-            t0 = time.perf_counter_ns()
+
+            dist.barrier()
+            # before = cuda.Event(enable_timing=True)
+            # after = cuda.Event(enable_timing=True)
+
+            before = time.perf_counter_ns()
             dist.recv(tensor=buffer, src=i)
-            logging.info("garbage %i", buffer[-1]-buffer[-2])
-            start = time.perf_counter_ns() - t0
+            checksum = buffer[-1] + buffer[-2] + buffer[-3]
+            logging.info("CHECKSUM %i %i %i: %f", i, rank, j, checksum)
+            dist.barrier()
+            after = time.perf_counter_ns()
+
+            start = after - before
             logging.info("recv %i -> %i # %i at %i, %f %f", i, rank, j, start, buffer[0], buffer[1])
 
             for k in range(rank+2,world_size):
+                dist.barrier()
                 dist.barrier()
 
     # dist.barrier()
