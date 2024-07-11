@@ -50,6 +50,7 @@ def run(world_size, rank):
                 dist.barrier()
                 dist.barrier()
             
+    
     logging.info("Sending from rank %i", rank)
     for j in range(maxExp):
         temp = torch.rand(250*(base**j)).to(device)
@@ -103,6 +104,45 @@ def run(world_size, rank):
             for k in range(rank+2,world_size):
                 dist.barrier()
                 dist.barrier()
+    
+    logging.info("Rank %i start All-Reduce", rank)
+    node = rank//4
+    for i in range(0,node):
+        dist.barrier()
+        temp = dist.new_group([i*4, i*4+1,i*4+2,i*4+3])
+        dist.barrier()
+    
+    tensor = torch.rand(250*(base**j)).to(device)
+    logging.info("Rank %i HIT BARRIER", rank)
+    dist.barrier()
+    before = time.perf_counter_ns()
+    group = dist.new_group([node*4, node*4+1,node*4+2,node*4+3])
+    logging.info("Made group")
+    dist.all_reduce(tensor, op=dist.ReduceOp.SUM, group=group)
+    checksum = tensor[-1] + tensor[-2] + tensor[-3]
+    logging.info("Node Reduce CHECKSUM %i: %f", rank, checksum)
+    dist.barrier()
+    after = time.perf_counter_ns
+
+    start = after - before
+    logging.info("Node Reduce rank %i at %i", rank, start)
+
+    for i in range(node+1, world_size/4):
+        dist.barrier()
+        temp = dist.new_group([i*4, i*4+1,i*4+2,i*4+3])
+        dist.barrier()
+    
+    tensor = torch.rand(250*(base**j)).to(device)
+    dist.barrier()
+    before = time.perf_counter_ns()
+    dist.all_reduce(tensor, op=dist.ReduceOp.SUM)
+    checksum = tensor[-1] + tensor[-2] + tensor[-3]
+    logging.info("All Reduce CHECKSUM %i: %f", checksum)
+    dist.barrier()
+    after = time.perf_counter_ns
+
+    start = after-before
+    logging.info("All Reduce rank %i at %i", rank, start)
     
     logging.info("Rank %i done", rank)    
     exit()

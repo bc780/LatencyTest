@@ -40,6 +40,7 @@ for f in outFiles:
         diffDict[i] = recvDict[i] - sendDict[i]
         if(diffDict[i] < 0):
             print(i)
+            print(f)
             print("Failed")
             count += 1
 

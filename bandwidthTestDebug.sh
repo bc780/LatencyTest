@@ -6,7 +6,7 @@
 #SBATCH -J BandwidthTestDebug
 #SBATCH --mail-user=bc780@scarletmail.rutgers.edu
 #SBATCH --mail-type=ALL
-#SBATCH -t 00:30:00
+#SBATCH -t 00:02:00
 #SBATCH -A m4410_g
 
 #OpenMP settings:
