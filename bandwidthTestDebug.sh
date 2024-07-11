@@ -6,7 +6,7 @@
 #SBATCH -J BandwidthTestDebug
 #SBATCH --mail-user=bc780@scarletmail.rutgers.edu
 #SBATCH --mail-type=ALL
-#SBATCH -t 00:10:00
+#SBATCH -t 00:30:00
 #SBATCH -A m4410_g
 
 #OpenMP settings:
@@ -17,8 +17,28 @@ export OMP_PLACES=threads
 export OMP_PROC_BIND=spread
 export MASTER_ADDR=$(hostname)
 export MASTER_PORT=29500
-export NCCL_DEBUG=INFO
+
+
 
 #run the application:
 #applications may perform better with --gpu-bind=none instead of --gpu-bind=single:1 
+echo $SLURM_NODELIST
 srun -n 16 -c 32 --cpu_bind=cores -G 16 --gpu-bind=single:1 python bandwidthTest.py
+# echo $SLURM_NODELIST
+# srun -n 16 -c 32 --cpu_bind=cores -G 16 --gpu-bind=single:1 python bandwidthTest.py
+# echo $SLURM_NODELIST
+# srun -n 16 -c 32 --cpu_bind=cores -G 16 --gpu-bind=single:1 python bandwidthTest.py
+# echo $SLURM_NODELIST
+# srun -n 16 -c 32 --cpu_bind=cores -G 16 --gpu-bind=single:1 python bandwidthTest.py
+# echo $SLURM_NODELIST
+# srun -n 16 -c 32 --cpu_bind=cores -G 16 --gpu-bind=single:1 python bandwidthTest.py
+# echo $SLURM_NODELIST
+# srun -n 16 -c 32 --cpu_bind=cores -G 16 --gpu-bind=single:1 python bandwidthTest.py
+# echo $SLURM_NODELIST
+# srun -n 16 -c 32 --cpu_bind=cores -G 16 --gpu-bind=single:1 python bandwidthTest.py
+# echo $SLURM_NODELIST
+# srun -n 16 -c 32 --cpu_bind=cores -G 16 --gpu-bind=single:1 python bandwidthTest.py
+# echo $SLURM_NODELIST
+# srun -n 16 -c 32 --cpu_bind=cores -G 16 --gpu-bind=single:1 python bandwidthTest.py
+# echo $SLURM_NODELIST
+# srun -n 16 -c 32 --cpu_bind=cores -G 16 --gpu-bind=single:1 python bandwidthTest.py
