@@ -10,7 +10,6 @@ def split_file_by_breaker(input_file, breaker):
     
     print(f"File split into {len(parts)} parts.")
 
-# Example usage:
-input_file = 'slurm-27947338.out'
-breaker = 'nid[001140,001265,001585,001849]'  # Change this to the breaker string you want to use
+input_file = 'slurm-28844244.out'
+breaker = 'BREAK'
 split_file_by_breaker(input_file, breaker)

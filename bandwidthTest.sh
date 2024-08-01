@@ -20,6 +20,8 @@ export MASTER_PORT=29500
 #run the application:
 #applications may perform better with --gpu-bind=none instead of --gpu-bind=single:1 
 for i in {1...20}
-srun -n 16 -c 32 --cpu_bind=cores -G 16 --gpu-bind=single:1 python bandwidthTest.py
-echo "BREAK"
-sleep 60
+do
+    srun -n 16 -c 32 --cpu_bind=cores -G 16 --gpu-bind=single:1 python bandwidthTest.py
+    echo "BREAK"
+    sleep 60
+done

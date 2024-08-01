@@ -4,7 +4,9 @@ import matplotlib.colors as colors
 import numpy as np
 
 # outFiles = ["a.out","b.out","c.out","d.out","e.out"]
-outFiles = ["output_1.out","output_2.out","output_3.out","output_4.out","output_5.out","output_6.out","output_7.out"]
+outFiles = []
+for i in range(1,19):
+    outFiles.append("output_" + str(i) + ".out")
 
 bandwidthData = dict()
 nodeData = dict()
@@ -53,11 +55,11 @@ for f in outFiles:
     count = 0
     for i in sendDict:
         diffDict[i] = recvDict[i] - sendDict[i]
-        if(diffDict[i] < 0):
-            print(i)
-            print(f)
-            print("Failed")
-            count += 1
+        # if(diffDict[i] < 0):
+        #     print(i)
+        #     print(f)
+        #     print("Failed")
+        #     count += 1
 
 
     for i in diffDict:
