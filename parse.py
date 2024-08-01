@@ -3,8 +3,12 @@ import matplotlib.pyplot as plt
 import matplotlib.colors as colors
 import numpy as np
 
-outFiles = ["a.out","b.out","c.out","d.out","e.out"]
+# outFiles = ["a.out","b.out","c.out","d.out","e.out"]
+outFiles = ["output_1.out","output_2.out","output_3.out","output_4.out","output_5.out","output_6.out","output_7.out"]
+
 bandwidthData = dict()
+nodeData = dict()
+allData = dict()
 
 for f in outFiles:
     file = open(f, "r")
@@ -13,12 +17,14 @@ for f in outFiles:
     sends = re.findall('sent [0-9]+ -> [0-9]+ # [0-9]+ at [0-9.]+', info)
     recvs = re.findall('recv [0-9]+ -> [0-9]+ # [0-9]+ at [0-9.]+', info)
     checksums = re.findall('CHECKSUM [0-9]+ [0-9]+ [0-9]+: [0-9.]+', info)
+    nodeReduce = re.findall('Node Reduce rank [0-9]+ at [0-9.]+', info)
+    allReduce = re.findall('All Reduce rank [0-9]+ at [0-9.]+', info)
 
 
     sendDict = dict()
     recvDict = dict()
-
-    #validate checksums
+    nodeDict = dict()
+    allDict = dict()
 
 
     for i in sends:
@@ -33,6 +39,15 @@ for f in outFiles:
         multiple = int(re.search('(?<=# )[0-9]+',i).group())
         time = int(re.search('(?<=at )[.0-9]+',i).group())
         recvDict[(sender,receiver,multiple)] = time
+    for i in nodeReduce:
+        rank = int(re.search('(?<=rank )[0-9]+',i).group())
+        time = int(re.search('(?<=at )[0-9.]+',i).group())
+        nodeDict[rank] = time
+    for i in allReduce:
+        rank = int(re.search('(?<=rank )[0-9]+',i).group())
+        time = int(re.search('(?<=at )[0-9.]+',i).group())
+        allDict[rank] = time
+
 
     diffDict = dict()
     count = 0
@@ -51,16 +66,44 @@ for f in outFiles:
         else:
             bandwidthData[i] = []
             bandwidthData[i].append(diffDict[i])
+    for i in nodeDict:
+        if i in nodeData:
+            nodeData[i].append(nodeDict[i])
+        else:
+            nodeData[i] = []
+            nodeData[i].append(nodeDict[i])
+    for i in allDict:
+        if i in allData:
+            allData[i].append(allDict[i])
+        else:
+            allData[i] = []
+            allData[i].append(allDict[i])
+
+    
+    
 
 def nsToGbs(time):
     return format(65536000.0/float(time),'.4f') 
+
+for i in range(4):
+    nodeReduceBandwidths = [0]*16
+    for j in range(4):
+        nodeReduceBandwidths[j] = np.average(nodeData[i*4+j])
+    averageNodeReduce = nsToGbs(np.average(nodeReduceBandwidths)/4)
+    print("Node", i, "Bandwidth: ", averageNodeReduce)
+    
+
+allReduceBandwidths = [0]*16
+for i in range(16):
+    allReduceBandwidths[i] = np.average(allData[i])
+averageAllReduce = nsToGbs(np.average(allReduceBandwidths))
+print("All Reduce Bandwidth: ", averageAllReduce)
 
 bandwidths = np.zeros((16,16),dtype=float)
 sd = np.zeros((16,16),dtype=float)
 for i in bandwidthData:
     bandwidths[i[0]][i[1]] = nsToGbs(np.average(bandwidthData[i]))
     sd[i[0]][i[1]] = nsToGbs(np.std(bandwidthData[i]))
-print(bandwidths[0][0])
 columns = [str(x) for x in range(bandwidths.shape[0])]
 rows = [str(x) for x in range(bandwidths.shape[1])]
 
@@ -75,8 +118,8 @@ min_val = non_zero_data.min()
 max_val = non_zero_data.max()
 
 norm = colors.Normalize(vmin=min_val,vmax=max_val)
-green_red = [(0,1,0),(1,0,0)]
-map = colors.LinearSegmentedColormap.from_list('green_red',green_red)
+red_green = [(1,0,0),(0,1,0)]
+map = colors.LinearSegmentedColormap.from_list('red_green',red_green)
 
 for i in range(bandwidths.shape[0]):
     for j in range(bandwidths.shape[1]):
@@ -107,6 +150,7 @@ max_val = non_zero_data.max()
 norm = colors.Normalize(vmin=min_val,vmax=max_val)
 green_red = [(0,1,0),(1,0,0)]
 map = colors.LinearSegmentedColormap.from_list('green_red',green_red)
+
 
 for i in range(bandwidths.shape[0]):
     for j in range(bandwidths.shape[1]):

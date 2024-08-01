@@ -122,12 +122,12 @@ def run(world_size, rank):
     checksum = tensor[-1] + tensor[-2] + tensor[-3]
     logging.info("Node Reduce CHECKSUM %i: %f", rank, checksum)
     dist.barrier()
-    after = time.perf_counter_ns
+    after = time.perf_counter_ns()
 
     start = after - before
     logging.info("Node Reduce rank %i at %i", rank, start)
 
-    for i in range(node+1, world_size/4):
+    for i in range(node+1, world_size//4):
         dist.barrier()
         temp = dist.new_group([i*4, i*4+1,i*4+2,i*4+3])
         dist.barrier()
@@ -137,9 +137,9 @@ def run(world_size, rank):
     before = time.perf_counter_ns()
     dist.all_reduce(tensor, op=dist.ReduceOp.SUM)
     checksum = tensor[-1] + tensor[-2] + tensor[-3]
-    logging.info("All Reduce CHECKSUM %i: %f", checksum)
+    logging.info("All Reduce CHECKSUM %i: %f", rank, checksum)
     dist.barrier()
-    after = time.perf_counter_ns
+    after = time.perf_counter_ns()
 
     start = after-before
     logging.info("All Reduce rank %i at %i", rank, start)
