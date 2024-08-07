@@ -12,7 +12,7 @@ from utilsNersc.distributed import init_workers
 
 # max and base of exponents to modify data size
 maxExp = 1
-base = 65536
+base = 8000000
 
 def run(world_size, rank):
     
