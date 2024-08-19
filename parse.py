@@ -4,9 +4,9 @@ import matplotlib.colors as colors
 import numpy as np
 
 # outFiles = ["a.out","b.out","c.out","d.out","e.out"]
-outFiles = []
-for i in range(1,19):
-    outFiles.append("output_" + str(i) + ".out")
+outFiles = ["slurm-29560476.out"]
+# for i in range(1,19):
+#     outFiles.append("output_" + str(i) + ".out")
 
 bandwidthData = dict()
 nodeData = dict()
@@ -54,7 +54,7 @@ for f in outFiles:
     diffDict = dict()
     count = 0
     for i in sendDict:
-        diffDict[i] = recvDict[i] - sendDict[i]
+        diffDict[i] = sendDict[i]
         # if(diffDict[i] < 0):
         #     print(i)
         #     print(f)
@@ -85,7 +85,7 @@ for f in outFiles:
     
 
 def nsToGbs(time):
-    return format(65536000.0/float(time),'.4f') 
+    return format(8000000000.0/float(time),'.4f') 
 
 for i in range(4):
     nodeReduceBandwidths = [0]*16
@@ -105,7 +105,7 @@ bandwidths = np.zeros((16,16),dtype=float)
 sd = np.zeros((16,16),dtype=float)
 for i in bandwidthData:
     bandwidths[i[0]][i[1]] = nsToGbs(np.average(bandwidthData[i]))
-    sd[i[0]][i[1]] = nsToGbs(np.std(bandwidthData[i]))
+    # sd[i[0]][i[1]] = nsToGbs(np.std(bandwidthData[i]))
 columns = [str(x) for x in range(bandwidths.shape[0])]
 rows = [str(x) for x in range(bandwidths.shape[1])]
 

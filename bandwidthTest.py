@@ -27,7 +27,7 @@ def run(world_size, rank):
         for j in range(maxExp):
             del buffer
             cuda.empty_cache()
-            buffer = torch.zeros(250*(base**j)).to(device)
+            buffer = torch.zeros(250*(base**(j+1))).to(device)
             for k in range(0,rank-1):
                 dist.barrier()
                 dist.barrier()
@@ -53,13 +53,13 @@ def run(world_size, rank):
     
     logging.info("Sending from rank %i", rank)
     for j in range(maxExp):
-        temp = torch.rand(250*(base**j)).to(device)
         
         for i in range(world_size):
             #send data to all ranks
             #ensure it does not send to itself
             if i != rank:           
             #generate random tensor of correct size
+                temp = torch.rand(250*(base**(j+1))).to(device)
                 dist.barrier()
 
                 # before = cuda.Event(enable_timing=True)
@@ -81,11 +81,10 @@ def run(world_size, rank):
         for j in range(maxExp):
             del buffer
             cuda.empty_cache()
-            buffer = torch.zeros(250*(base**j)).to(device)
+            buffer = torch.zeros(250*(base**(j+1))).to(device)
             for k in range(0,rank):
                 dist.barrier()
                 dist.barrier()
-
 
             dist.barrier()
             # before = cuda.Event(enable_timing=True)
@@ -112,7 +111,7 @@ def run(world_size, rank):
         temp = dist.new_group([i*4, i*4+1,i*4+2,i*4+3])
         dist.barrier()
     
-    tensor = torch.rand(250*(base**j)).to(device)
+    tensor = torch.rand(250*(base)).to(device)
     logging.info("Rank %i HIT BARRIER", rank)
     dist.barrier()
     before = time.perf_counter_ns()
@@ -132,7 +131,7 @@ def run(world_size, rank):
         temp = dist.new_group([i*4, i*4+1,i*4+2,i*4+3])
         dist.barrier()
     
-    tensor = torch.rand(250*(base**j)).to(device)
+    tensor = torch.rand(250*(base)).to(device)
     dist.barrier()
     before = time.perf_counter_ns()
     dist.all_reduce(tensor, op=dist.ReduceOp.SUM)
