@@ -38,10 +38,10 @@ def run(world_size, rank):
             
             before = time.perf_counter_ns()
             dist.recv(tensor=buffer, src=i)
+            after = time.perf_counter_ns()
             checksum = buffer[-1] + buffer[-2] + buffer[-3]
             logging.info("CHECKSUM %i %i %i: %f", i, rank, j, checksum)
             dist.barrier()
-            after = time.perf_counter_ns()
 
             start  = after - before
             logging.info("recv %i -> %i # %i at %i, %f %f", i, rank, j, start, buffer[0], buffer[1])
@@ -74,6 +74,8 @@ def run(world_size, rank):
 
                 start  = after-before
                 logging.info("sent %i -> %i # %i at %i, %f %f", rank, i, j, start, temp[0], temp[1])
+    del temp
+    cuda.empty_cache()
 
     for i in range(rank+1,world_size):
         #recv data of all ranks after
@@ -92,10 +94,10 @@ def run(world_size, rank):
 
             before = time.perf_counter_ns()
             dist.recv(tensor=buffer, src=i)
+            after = time.perf_counter_ns()
             checksum = buffer[-1] + buffer[-2] + buffer[-3]
             logging.info("CHECKSUM %i %i %i: %f", i, rank, j, checksum)
             dist.barrier()
-            after = time.perf_counter_ns()
 
             start = after - before
             logging.info("recv %i -> %i # %i at %i, %f %f", i, rank, j, start, buffer[0], buffer[1])

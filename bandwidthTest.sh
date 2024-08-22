@@ -6,7 +6,7 @@
 #SBATCH -J BandwidthTest
 #SBATCH --mail-user=bc780@scarletmail.rutgers.edu
 #SBATCH --mail-type=ALL
-#SBATCH -t 01:00:00
+#SBATCH -t 04:00:00
 #SBATCH -A m4431_g
 
 #OpenMP settings:
@@ -21,5 +21,12 @@ export MASTER_PORT=29500
 
 #run the application:
 #applications may perform better with --gpu-bind=none instead of --gpu-bind=single:1 
+echo $SLURM_NODELIST
+srun -n 16 -c 32 --cpu_bind=cores -G 16 --gpu-bind=single:1 python bandwidthTest.py
+echo "BREAK"
+srun -n 16 -c 32 --cpu_bind=cores -G 16 --gpu-bind=single:1 python bandwidthTest.py
+echo "BREAK"
+srun -n 16 -c 32 --cpu_bind=cores -G 16 --gpu-bind=single:1 python bandwidthTest.py
+echo "BREAK"
 srun -n 16 -c 32 --cpu_bind=cores -G 16 --gpu-bind=single:1 python bandwidthTest.py
 echo "BREAK"

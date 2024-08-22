@@ -7,7 +7,7 @@
 #SBATCH --mail-user=bc780@scarletmail.rutgers.edu
 #SBATCH --mail-type=ALL
 #SBATCH -t 00:30:00
-#SBATCH -A m4410_g
+#SBATCH -A m4431g
 
 #OpenMP settings:
 module load python/3.11
@@ -17,7 +17,6 @@ export OMP_PLACES=threads
 export OMP_PROC_BIND=spread
 export MASTER_ADDR=$(hostname)
 export MASTER_PORT=29500
-
 
 
 #run the application:
