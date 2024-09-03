@@ -33,17 +33,21 @@ def run(world_size, rank):
                 dist.barrier()
 
             dist.barrier()
-            # before = cuda.Event(enable_timing=True)
-            # after = cuda.Event(enable_timing=True)
+            before = cuda.Event(enable_timing=True)
+            after = cuda.Event(enable_timing=True)
             
-            before = time.perf_counter_ns()
+            # before = time.perf_counter_ns()
+            before.record()
             dist.recv(tensor=buffer, src=i)
-            after = time.perf_counter_ns()
+            # after = time.perf_counter_ns()
+            after.record()
             checksum = buffer[-1] + buffer[-2] + buffer[-3]
             logging.info("CHECKSUM %i %i %i: %f", i, rank, j, checksum)
             dist.barrier()
 
-            start  = after - before
+            # start  = after - before 
+            start = before.elapsed_time(after)
+            start = int(start*1000000000)
             logging.info("recv %i -> %i # %i at %i, %f %f", i, rank, j, start, buffer[0], buffer[1])
 
             for k in range(rank+1,world_size):
@@ -62,17 +66,21 @@ def run(world_size, rank):
                 temp = torch.rand(250*(base**(j+1))).to(device)
                 dist.barrier()
 
-                # before = cuda.Event(enable_timing=True)
-                # after = cuda.Event(enable_timing=True)
+                before = cuda.Event(enable_timing=True)
+                after = cuda.Event(enable_timing=True)
 
-                before = time.perf_counter_ns()
+                # before = time.perf_counter_ns()
+                before.record()
                 dist.send(tensor=temp,dst=i)
-                after = time.perf_counter_ns()
+                # after = time.perf_counter_ns()
+                after.record()
                 checksum = temp[-1] + temp[-2] + temp[-3]
                 logging.info("CHECKSUM %i %i %i: %f", rank, i, j, checksum)
                 dist.barrier()
 
-                start  = after-before
+                # start  = after-before
+                start = before.elapsed_time(after)
+                start = int(start*1000000000)
                 logging.info("sent %i -> %i # %i at %i, %f %f", rank, i, j, start, temp[0], temp[1])
     del temp
     cuda.empty_cache()
@@ -89,17 +97,20 @@ def run(world_size, rank):
                 dist.barrier()
 
             dist.barrier()
-            # before = cuda.Event(enable_timing=True)
-            # after = cuda.Event(enable_timing=True)
+            before = cuda.Event(enable_timing=True)
+            after = cuda.Event(enable_timing=True)
 
-            before = time.perf_counter_ns()
+            # before = time.perf_counter_ns()
+            before.record()
             dist.recv(tensor=buffer, src=i)
-            after = time.perf_counter_ns()
+            # after = time.perf_counter_ns()
+            after.record()
             checksum = buffer[-1] + buffer[-2] + buffer[-3]
             logging.info("CHECKSUM %i %i %i: %f", i, rank, j, checksum)
             dist.barrier()
 
-            start = after - before
+            # start = after - before
+            start = int(start*1000000000)
             logging.info("recv %i -> %i # %i at %i, %f %f", i, rank, j, start, buffer[0], buffer[1])
 
             for k in range(rank+2,world_size):
