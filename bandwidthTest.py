@@ -47,7 +47,7 @@ def run(world_size, rank):
 
             # start  = after - before 
             start = before.elapsed_time(after)
-            start = int(start*1000000000)
+            start = int(start*1000000)
             logging.info("recv %i -> %i # %i at %i, %f %f", i, rank, j, start, buffer[0], buffer[1])
 
             for k in range(rank+1,world_size):
@@ -80,7 +80,7 @@ def run(world_size, rank):
 
                 # start  = after-before
                 start = before.elapsed_time(after)
-                start = int(start*1000000000)
+                start = int(start*1000000)
                 logging.info("sent %i -> %i # %i at %i, %f %f", rank, i, j, start, temp[0], temp[1])
     del temp
     cuda.empty_cache()
@@ -110,7 +110,8 @@ def run(world_size, rank):
             dist.barrier()
 
             # start = after - before
-            start = int(start*1000000000)
+            start = before.elapsed_time(after)
+            start = int(start*1000000)
             logging.info("recv %i -> %i # %i at %i, %f %f", i, rank, j, start, buffer[0], buffer[1])
 
             for k in range(rank+2,world_size):
