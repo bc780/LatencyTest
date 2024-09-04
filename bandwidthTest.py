@@ -117,6 +117,9 @@ def run(world_size, rank):
             for k in range(rank+2,world_size):
                 dist.barrier()
                 dist.barrier()
+
+
+    #Beginning All Reduce Testing
     
     logging.info("Rank %i start All-Reduce", rank)
     node = rank//4
@@ -127,18 +130,33 @@ def run(world_size, rank):
     
     tensor = torch.rand(250*(base)).to(device)
     logging.info("Rank %i HIT BARRIER", rank)
+
+    # Node Reduce Test
     dist.barrier()
-    before = time.perf_counter_ns()
+
+    before = cuda.Event(enable_timing=True)
+    after = cuda.Event(enable_timing=True)
+
+    # before = time.perf_counter_ns()
     group = dist.new_group([node*4, node*4+1,node*4+2,node*4+3])
     logging.info("Made group")
+    before.record()
     dist.all_reduce(tensor, op=dist.ReduceOp.SUM, group=group)
+    after.record()
     checksum = tensor[-1] + tensor[-2] + tensor[-3]
     logging.info("Node Reduce CHECKSUM %i: %f", rank, checksum)
     dist.barrier()
-    after = time.perf_counter_ns()
+    # after = time.perf_counter_ns()
 
-    start = after - before
+    # start = after - before
+    start = before.elapsed_time(after)
+    start = int(start*1000000)
     logging.info("Node Reduce rank %i at %i", rank, start)
+
+    #All Reduce Test
+
+    before = cuda.Event(enable_timing=True)
+    after = cuda.Event(enable_timing=True)
 
     for i in range(node+1, world_size//4):
         dist.barrier()
@@ -147,14 +165,18 @@ def run(world_size, rank):
     
     tensor = torch.rand(250*(base)).to(device)
     dist.barrier()
-    before = time.perf_counter_ns()
+    # before = time.perf_counter_ns()
+    before.record()
     dist.all_reduce(tensor, op=dist.ReduceOp.SUM)
+    after.record()
     checksum = tensor[-1] + tensor[-2] + tensor[-3]
     logging.info("All Reduce CHECKSUM %i: %f", rank, checksum)
     dist.barrier()
-    after = time.perf_counter_ns()
+    # after = time.perf_counter_ns()
 
-    start = after-before
+    # start = after-before
+    start = before.elapsed_time(after)
+    start = int(start*1000000)
     logging.info("All Reduce rank %i at %i", rank, start)
     
     logging.info("Rank %i done", rank)    
