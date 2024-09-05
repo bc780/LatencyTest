@@ -10,6 +10,6 @@ def split_file_by_breaker(input_file, breaker):
     
     print(f"File split into {len(parts)} parts.")
 
-input_file = 'slurm-30104147.out'
+input_file = 'slurm-30138608.out'
 breaker = 'BREAK'
 split_file_by_breaker(input_file, breaker)
