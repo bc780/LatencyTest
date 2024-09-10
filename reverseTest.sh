@@ -3,7 +3,7 @@
 #SBATCH -C gpu
 #SBATCH -G 16
 #SBATCH -q regular
-#SBATCH -J BandwidthTestDebug
+#SBATCH -J ReverseTest
 #SBATCH --mail-user=bc780@scarletmail.rutgers.edu
 #SBATCH --mail-type=ALL
 #SBATCH -t 04:00:00
