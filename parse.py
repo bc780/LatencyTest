@@ -106,7 +106,7 @@ for f in outFiles:
     
 #converts time into gigabytes
 def nsToGBs(time):
-    return format(8000000000.0/float(time),'.2f') 
+    return format(8.0/(float(time)/1000000000),'.2f') 
 
 #calculates and prints node all reduce
 for i in range(4):
