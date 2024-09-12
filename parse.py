@@ -58,7 +58,7 @@ for f in outFiles:
         time = int(re.search('(?<=at )[0-9.]+',i).group())
         allDict[rank] = time
     for i in reverseRecvs:
-        sender = int(re.search('(?<=recv )[0-9]+',i).group())
+        sender = int(re.search('(?<=recv reverse )[0-9]+',i).group())
         receiver = int(re.search('(?<=-> )[0-9]+',i).group())
         multiple = int(re.search('(?<=# )[0-9]+',i).group())
         time = int(re.search('(?<=at )[.0-9]+',i).group())
@@ -265,8 +265,8 @@ non_zero_data = reverseSd[reverseSd != 0]
 min_val = non_zero_data.min()
 max_val = non_zero_data.max()
 norm = colors.Normalize(vmin=min_val,vmax=max_val)
-red_green = [(1,0,0),(0,1,0)]
-map = colors.LinearSegmentedColormap.from_list('red_green',red_green)
+green_red = [(0,1,0),(1,0,0)]
+map = colors.LinearSegmentedColormap.from_list('green_red',green_red)
 
 #cell settings for reverse standard deviation table
 for i in range(bandwidths.shape[0]):

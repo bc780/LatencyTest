@@ -23,11 +23,9 @@ export MASTER_PORT=29500
 #applications may perform better with --gpu-bind=none instead of --gpu-bind=single:1
 echo $SLURM_NODELIST
 srun -n 16 -c 32 --cpu_bind=cores -G 16 --gpu-bind=single:1 python bandwidthTest.py
-echo "BREAK"
 srun -n 16 -c 32 --cpu_bind=cores -G 16 --gpu-bind=single:1 python reverseCheck.py
 echo "BREAK"
 srun -n 16 -c 32 --cpu_bind=cores -G 16 --gpu-bind=single:1 python bandwidthTest.py
-echo "BREAK"
 srun -n 16 -c 32 --cpu_bind=cores -G 16 --gpu-bind=single:1 python reverseCheck.py
 echo "BREAK"
 
