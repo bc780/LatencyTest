@@ -6,16 +6,60 @@ import os
 from utilsNersc.logging import config_logging
 from utilsNersc.distributed import init_workers
 
-tensorSize = 8000000
+tensorSize = 2000000
 
 def run(world_size, rank):
-
     device = torch.device('cuda' if cuda.is_available() else 'cpu')
-    test = torch.zeros(2000000000).to(device)
-    logging.info("Tensor size: %i",test.element_size()*test.nelement())
+    node = rank//4
+
+    time = interReduce(tensorSize,device)
+    logging.info("Rank %i All Reduce: %f", rank, time)
+
+    time  = intraReduce(tensorSize, device, node)
+    logging.info("Rank %i Node Reduce %i: %f", rank, node, time)
+
+
+
     exit()
 
+    
 
+#all nodes test
+def interReduce(tensorSize, device):
+    before = cuda.Event(enable_timing=True)
+    after = cuda.Event(enable_timing=True)
+
+    #generate tensor
+    tensor = torch.rand(tensorSize).to(device)
+
+    #time all reduce
+    dist.barrier()
+    before.record()
+    dist.all_reduce(tensor)
+    after.record()
+
+    return before.elapsed_time(after)
+
+
+
+#one node test
+def intraReduce(tensorSize, device, node):
+    before = cuda.Event(enable_timing=True)
+    after = cuda.Event(enable_timing=True)
+
+    group = dist.new_group([node*4, node*4+1,node*4+2,node*4+3])
+
+    #generate tensor
+    tensor = torch.rand(tensorSize).to(device)
+
+    #time all reduce
+    dist.barrier()
+    before.record()
+    dist.all_reduce(tensor, group = group)
+    after.record()
+
+    return before.elapsed_time(after)
+    
 
 
 def main():

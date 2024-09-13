@@ -1,0 +1,45 @@
+
+Lmod is automatically replacing "gcc-native/12.3" with "gcc/11.2.0".
+
+
+Inactive Modules:
+  1) cray-libsci/23.12.5
+
+The following have been reloaded with a version change:
+  1) cray-mpich/8.1.28 => cray-mpich/8.1.25
+  2) cudatoolkit/12.2 => cudatoolkit/11.7
+
+nid[001444,001816,003852-003853]
+2024-09-13 09:19:59,729 INFO Initialized rank 5 out of 16
+2024-09-13 09:19:59,729 INFO Initialized rank 1 out of 16
+2024-09-13 09:19:59,729 INFO Initialized rank 15 out of 16
+2024-09-13 09:19:59,729 INFO Initialized rank 7 out of 16
+2024-09-13 09:19:59,729 INFO Initialized rank 0 out of 16
+2024-09-13 09:19:59,729 INFO Initialized rank 13 out of 16
+2024-09-13 09:19:59,729 INFO Initialized rank 4 out of 16
+2024-09-13 09:19:59,729 INFO Initialized rank 2 out of 16
+2024-09-13 09:19:59,730 INFO Initialized rank 12 out of 16
+2024-09-13 09:19:59,730 INFO Initialized rank 8 out of 16
+2024-09-13 09:19:59,730 INFO Initialized rank 6 out of 16
+2024-09-13 09:19:59,730 INFO Initialized rank 3 out of 16
+2024-09-13 09:19:59,730 INFO Initialized rank 14 out of 16
+2024-09-13 09:19:59,730 INFO Initialized rank 10 out of 16
+2024-09-13 09:19:59,730 INFO Initialized rank 9 out of 16
+2024-09-13 09:19:59,730 INFO Initialized rank 11 out of 16
+2024-09-13 09:20:02,876 INFO Tensor size: 8000000000
+2024-09-13 09:20:02,878 INFO Tensor size: 8000000000
+2024-09-13 09:20:02,883 INFO Tensor size: 8000000000
+2024-09-13 09:20:02,884 INFO Tensor size: 8000000000
+2024-09-13 09:20:03,139 INFO Tensor size: 8000000000
+2024-09-13 09:20:03,139 INFO Tensor size: 8000000000
+2024-09-13 09:20:03,139 INFO Tensor size: 8000000000
+2024-09-13 09:20:03,154 INFO Tensor size: 8000000000
+2024-09-13 09:20:03,233 INFO Tensor size: 8000000000
+2024-09-13 09:20:03,258 INFO Tensor size: 8000000000
+2024-09-13 09:20:03,266 INFO Tensor size: 8000000000
+2024-09-13 09:20:03,267 INFO Tensor size: 8000000000
+2024-09-13 09:20:03,272 INFO Tensor size: 8000000000
+2024-09-13 09:20:03,272 INFO Tensor size: 8000000000
+2024-09-13 09:20:03,279 INFO Tensor size: 8000000000
+2024-09-13 09:20:03,279 INFO Tensor size: 8000000000
+BREAK

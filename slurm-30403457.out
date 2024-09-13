@@ -1,0 +1,113 @@
+
+Lmod is automatically replacing "gcc-native/12.3" with "gcc/11.2.0".
+
+
+Inactive Modules:
+  1) cray-libsci/23.12.5
+
+The following have been reloaded with a version change:
+  1) cray-mpich/8.1.28 => cray-mpich/8.1.25
+  2) cudatoolkit/12.2 => cudatoolkit/11.7
+
+nid[002440-002441,002444-002445]
+2024-09-13 09:51:59,371 INFO Initialized rank 14 out of 16
+2024-09-13 09:51:59,372 INFO Initialized rank 1 out of 16
+2024-09-13 09:51:59,372 INFO Initialized rank 5 out of 16
+2024-09-13 09:51:59,372 INFO Initialized rank 2 out of 16
+2024-09-13 09:51:59,373 INFO Added key: store_based_barrier_key:2 to store for rank: 5
+2024-09-13 09:51:59,372 INFO Added key: store_based_barrier_key:2 to store for rank: 14
+2024-09-13 09:51:59,373 INFO Added key: store_based_barrier_key:2 to store for rank: 1
+2024-09-13 09:51:59,373 INFO Initialized rank 3 out of 16
+2024-09-13 09:51:59,373 INFO Added key: store_based_barrier_key:2 to store for rank: 2
+2024-09-13 09:51:59,374 INFO Added key: store_based_barrier_key:2 to store for rank: 3
+2024-09-13 09:51:59,374 INFO Initialized rank 13 out of 16
+2024-09-13 09:51:59,375 INFO Initialized rank 15 out of 16
+2024-09-13 09:51:59,375 INFO Added key: store_based_barrier_key:2 to store for rank: 13
+2024-09-13 09:51:59,376 INFO Added key: store_based_barrier_key:2 to store for rank: 15
+2024-09-13 09:51:59,376 INFO Initialized rank 4 out of 16
+2024-09-13 09:51:59,377 INFO Added key: store_based_barrier_key:2 to store for rank: 4
+2024-09-13 09:51:59,378 INFO Initialized rank 7 out of 16
+2024-09-13 09:51:59,379 INFO Initialized rank 12 out of 16
+2024-09-13 09:51:59,379 INFO Added key: store_based_barrier_key:2 to store for rank: 7
+2024-09-13 09:51:59,379 INFO Initialized rank 6 out of 16
+2024-09-13 09:51:59,380 INFO Initialized rank 0 out of 16
+2024-09-13 09:51:59,380 INFO Initialized rank 9 out of 16
+2024-09-13 09:51:59,380 INFO Initialized rank 10 out of 16
+2024-09-13 09:51:59,380 INFO Initialized rank 8 out of 16
+2024-09-13 09:51:59,380 INFO Added key: store_based_barrier_key:2 to store for rank: 0
+2024-09-13 09:51:59,380 INFO Initialized rank 11 out of 16
+2024-09-13 09:51:59,380 INFO Added key: store_based_barrier_key:2 to store for rank: 12
+2024-09-13 09:51:59,381 INFO Added key: store_based_barrier_key:2 to store for rank: 6
+2024-09-13 09:51:59,381 INFO Added key: store_based_barrier_key:2 to store for rank: 9
+2024-09-13 09:51:59,381 INFO Added key: store_based_barrier_key:2 to store for rank: 10
+2024-09-13 09:51:59,381 INFO Added key: store_based_barrier_key:2 to store for rank: 8
+2024-09-13 09:51:59,381 INFO Added key: store_based_barrier_key:2 to store for rank: 11
+2024-09-13 09:51:59,381 INFO Rank 11: Completed store-based barrier for key:store_based_barrier_key:2 with 16 nodes.
+2024-09-13 09:51:59,382 INFO Rank 14: Completed store-based barrier for key:store_based_barrier_key:2 with 16 nodes.
+2024-09-13 09:51:59,383 INFO Rank 5: Completed store-based barrier for key:store_based_barrier_key:2 with 16 nodes.
+2024-09-13 09:51:59,383 INFO Rank 1: Completed store-based barrier for key:store_based_barrier_key:2 with 16 nodes.
+2024-09-13 09:51:59,383 INFO Rank 2: Completed store-based barrier for key:store_based_barrier_key:2 with 16 nodes.
+2024-09-13 09:51:59,384 INFO Rank 3: Completed store-based barrier for key:store_based_barrier_key:2 with 16 nodes.
+2024-09-13 09:51:59,385 INFO Rank 13: Completed store-based barrier for key:store_based_barrier_key:2 with 16 nodes.
+2024-09-13 09:51:59,386 INFO Rank 15: Completed store-based barrier for key:store_based_barrier_key:2 with 16 nodes.
+2024-09-13 09:51:59,387 INFO Rank 4: Completed store-based barrier for key:store_based_barrier_key:2 with 16 nodes.
+2024-09-13 09:51:59,390 INFO Rank 7: Completed store-based barrier for key:store_based_barrier_key:2 with 16 nodes.
+2024-09-13 09:51:59,391 INFO Rank 0: Completed store-based barrier for key:store_based_barrier_key:2 with 16 nodes.
+2024-09-13 09:51:59,391 INFO Rank 6: Completed store-based barrier for key:store_based_barrier_key:2 with 16 nodes.
+2024-09-13 09:51:59,391 INFO Rank 9: Completed store-based barrier for key:store_based_barrier_key:2 with 16 nodes.
+2024-09-13 09:51:59,391 INFO Rank 12: Completed store-based barrier for key:store_based_barrier_key:2 with 16 nodes.
+2024-09-13 09:51:59,391 INFO Rank 10: Completed store-based barrier for key:store_based_barrier_key:2 with 16 nodes.
+2024-09-13 09:51:59,391 INFO Rank 8: Completed store-based barrier for key:store_based_barrier_key:2 with 16 nodes.
+Traceback (most recent call last):
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 83, in <module>
+Traceback (most recent call last):
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 83, in <module>
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 77, in main
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 77, in main
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 15, in run
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 15, in run
+    time  = intraReduce(tensorSize, device, node)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 56, in intraReduce
+    time  = intraReduce(tensorSize, device, node)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 56, in intraReduce
+    dist.all_reduce(tensor, group = group)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 1451, in wrapper
+    dist.all_reduce(tensor, group = group)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 1451, in wrapper
+    return func(*args, **kwargs)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 1702, in all_reduce
+    return func(*args, **kwargs)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 1702, in all_reduce
+    work = group.allreduce([tensor], opts)
+torch.distributed.DistBackendError: NCCL error in: /pscratch/sd/s/swowner/pytorch-build/pytorch/2.0.1/pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:1275, internal error, NCCL version 2.15.5
+ncclInternalError: Internal check failed.
+Last error:
+Net : Call to recv from 10.249.15.45<47653> failed : Connection reset by peer
+    work = group.allreduce([tensor], opts)
+torch.distributed.DistBackendError: NCCL error in: /pscratch/sd/s/swowner/pytorch-build/pytorch/2.0.1/pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:1275, internal error, NCCL version 2.15.5
+ncclInternalError: Internal check failed.
+Last error:
+Net : Call to recv from 10.249.15.45<47653> failed : Connection reset by peer
+srun: error: nid002445: task 13: Exited with exit code 1
+srun: Terminating StepId=30403457.0
+slurmstepd: error: *** STEP 30403457.0 ON nid002440 CANCELLED AT 2024-09-13T16:52:03 ***
+srun: error: nid002445: task 14: Exited with exit code 1
+srun: error: nid002445: task 15: Terminated
+srun: error: nid002445: task 12: Terminated
+srun: error: nid002441: task 6: Terminated
+srun: error: nid002440: task 1: Terminated
+srun: error: nid002444: task 11: Terminated
+srun: error: nid002441: task 7: Terminated
+srun: error: nid002440: task 2: Terminated
+srun: error: nid002444: task 8: Terminated
+srun: error: nid002440: task 3: Terminated
+srun: error: nid002441: task 4: Terminated
+srun: error: nid002444: tasks 9-10: Terminated
+srun: error: nid002441: task 5: Terminated
+srun: error: nid002440: task 0: Terminated
+srun: Force Terminated StepId=30403457.0
+BREAK

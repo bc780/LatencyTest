@@ -1,0 +1,417 @@
+
+Lmod is automatically replacing "gcc-native/12.3" with "gcc/11.2.0".
+
+
+Inactive Modules:
+  1) cray-libsci/23.12.5
+
+The following have been reloaded with a version change:
+  1) cray-mpich/8.1.28 => cray-mpich/8.1.25
+  2) cudatoolkit/12.2 => cudatoolkit/11.7
+
+nid[001569,001572,002952-002953]
+2024-09-13 10:04:12,952 INFO Initialized rank 10 out of 16
+2024-09-13 10:04:12,952 INFO Initialized rank 11 out of 16
+2024-09-13 10:04:12,953 INFO Initialized rank 3 out of 16
+2024-09-13 10:04:12,953 INFO Initialized rank 2 out of 16
+2024-09-13 10:04:12,953 INFO Initialized rank 1 out of 16
+2024-09-13 10:04:12,953 INFO Initialized rank 8 out of 16
+2024-09-13 10:04:12,954 INFO Initialized rank 0 out of 16
+2024-09-13 10:04:12,956 INFO Initialized rank 9 out of 16
+2024-09-13 10:04:12,958 INFO Initialized rank 6 out of 16
+2024-09-13 10:04:12,958 INFO Initialized rank 7 out of 16
+2024-09-13 10:04:12,958 INFO Initialized rank 14 out of 16
+2024-09-13 10:04:12,958 INFO Initialized rank 15 out of 16
+2024-09-13 10:04:12,958 INFO Initialized rank 5 out of 16
+2024-09-13 10:04:12,958 INFO Initialized rank 4 out of 16
+2024-09-13 10:04:12,958 INFO Initialized rank 12 out of 16
+2024-09-13 10:04:12,959 INFO Initialized rank 13 out of 16
+Traceback (most recent call last):
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+Traceback (most recent call last):
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+Traceback (most recent call last):
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+Traceback (most recent call last):
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+Traceback (most recent call last):
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+Traceback (most recent call last):
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+Traceback (most recent call last):
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+Traceback (most recent call last):
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+Traceback (most recent call last):
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+Traceback (most recent call last):
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+--- Logging error ---
+Traceback (most recent call last):
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+Traceback (most recent call last):
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+--- Logging error ---
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+--- Logging error ---
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+Traceback (most recent call last):
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 15, in run
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 15, in run
+Traceback (most recent call last):
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 15, in run
+2024-09-13 10:04:16,601 INFO Added key: store_based_barrier_key:2 to store for rank: 2
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 927, in format
+    return fmt.format(record)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 663, in format
+    record.message = record.getMessage()
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 367, in getMessage
+    msg = msg % self.args
+TypeError: not enough arguments for format string
+Call stack:
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 15, in run
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+Traceback (most recent call last):
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 15, in run
+Traceback (most recent call last):
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 15, in run
+2024-09-13 10:04:16,602 INFO Added key: store_based_barrier_key:2 to store for rank: 4
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 16, in run
+    logging.info("Rank %i All Reduce: %f", time)
+Message: 'Rank %i All Reduce: %f'
+Arguments: (4.782527923583984,)
+--- Logging error ---
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 927, in format
+    return fmt.format(record)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 663, in format
+    record.message = record.getMessage()
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 367, in getMessage
+    msg = msg % self.args
+TypeError: not enough arguments for format string
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 15, in run
+2024-09-13 10:04:16,602 INFO Added key: store_based_barrier_key:2 to store for rank: 7
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 15, in run
+Traceback (most recent call last):
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 927, in format
+    return fmt.format(record)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 663, in format
+    record.message = record.getMessage()
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 367, in getMessage
+    msg = msg % self.args
+TypeError: not enough arguments for format string
+Call stack:
+    time = interReduce(tensorSize,device)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 41, in interReduce
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 927, in format
+    return fmt.format(record)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 663, in format
+    record.message = record.getMessage()
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 367, in getMessage
+    msg = msg % self.args
+Call stack:
+TypeError: not enough arguments for format string
+Call stack:
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 16, in run
+    logging.info("Rank %i All Reduce: %f", time)
+Message: 'Rank %i All Reduce: %f'
+Arguments: (4.936607837677002,)
+--- Logging error ---
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 15, in run
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 16, in run
+    logging.info("Rank %i All Reduce: %f", time)
+Traceback (most recent call last):
+    time = interReduce(tensorSize,device)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 41, in interReduce
+Message: 'Rank %i All Reduce: %f'
+Arguments: (4.782527923583984,)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 927, in format
+    return fmt.format(record)
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 15, in run
+    time = interReduce(tensorSize,device)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 41, in interReduce
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 663, in format
+    record.message = record.getMessage()
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 367, in getMessage
+    msg = msg % self.args
+TypeError: not enough arguments for format string
+Call stack:
+    time = interReduce(tensorSize,device)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 41, in interReduce
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 16, in run
+    logging.info("Rank %i All Reduce: %f", time)
+Message: 'Rank %i All Reduce: %f'
+Arguments: (5.017632007598877,)
+    time = interReduce(tensorSize,device)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 41, in interReduce
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 15, in run
+--- Logging error ---
+    time = interReduce(tensorSize,device)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 41, in interReduce
+    return before.elapsed_time(after)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/cuda/streams.py", line 208, in elapsed_time
+    time = interReduce(tensorSize,device)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 41, in interReduce
+Traceback (most recent call last):
+    time = interReduce(tensorSize,device)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 41, in interReduce
+    time = interReduce(tensorSize,device)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 41, in interReduce
+    time = interReduce(tensorSize,device)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 41, in interReduce
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 1083, in emit
+    msg = self.format(record)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 927, in format
+    return fmt.format(record)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 663, in format
+    record.message = record.getMessage()
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/logging/__init__.py", line 367, in getMessage
+    msg = msg % self.args
+TypeError: not enough arguments for format string
+Call stack:
+    time = interReduce(tensorSize,device)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 41, in interReduce
+    return before.elapsed_time(after)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/cuda/streams.py", line 208, in elapsed_time
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 16, in run
+    logging.info("Rank %i All Reduce: %f", time)
+Message: 'Rank %i All Reduce: %f'
+Arguments: (4.936607837677002,)
+    return before.elapsed_time(after)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/cuda/streams.py", line 208, in elapsed_time
+    return before.elapsed_time(after)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/cuda/streams.py", line 208, in elapsed_time
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 16, in run
+    logging.info("Rank %i All Reduce: %f", time)
+Message: 'Rank %i All Reduce: %f'
+Arguments: (5.017632007598877,)
+    return before.elapsed_time(after)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/cuda/streams.py", line 208, in elapsed_time
+    return before.elapsed_time(after)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/cuda/streams.py", line 208, in elapsed_time
+    return super().elapsed_time(end_event)
+RuntimeError: CUDA error: device not ready
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+    return super().elapsed_time(end_event)
+RuntimeError: CUDA error: device not ready
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+    return before.elapsed_time(after)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/cuda/streams.py", line 208, in elapsed_time
+    return before.elapsed_time(after)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/cuda/streams.py", line 208, in elapsed_time
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+    return before.elapsed_time(after)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/cuda/streams.py", line 208, in elapsed_time
+    return super().elapsed_time(end_event)
+RuntimeError: CUDA error: device not ready
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+    return super().elapsed_time(end_event)
+RuntimeError: CUDA error: device not ready
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+    return super().elapsed_time(end_event)
+RuntimeError: CUDA error: device not ready
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+    return before.elapsed_time(after)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/cuda/streams.py", line 208, in elapsed_time
+    return super().elapsed_time(end_event)
+RuntimeError: CUDA error: device not ready
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 15, in run
+    return before.elapsed_time(after)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/cuda/streams.py", line 208, in elapsed_time
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 15, in run
+    return super().elapsed_time(end_event)
+    return super().elapsed_time(end_event)
+RuntimeError: CUDA error: device not ready
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+    time = interReduce(tensorSize,device)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 41, in interReduce
+RuntimeError: CUDA error: device not ready
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+    time = interReduce(tensorSize,device)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 41, in interReduce
+    return super().elapsed_time(end_event)
+    return before.elapsed_time(after)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/cuda/streams.py", line 208, in elapsed_time
+    return super().elapsed_time(end_event)
+RuntimeError: CUDA error: device not ready
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+RuntimeError: CUDA error: device not ready
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+    return before.elapsed_time(after)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/cuda/streams.py", line 208, in elapsed_time
+    return super().elapsed_time(end_event)
+    return super().elapsed_time(end_event)
+RuntimeError: CUDA error: device not ready
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+RuntimeError: CUDA error: device not ready
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+    return super().elapsed_time(end_event)
+RuntimeError: CUDA error: device not ready
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 18, in run
+    time  = intraReduce(tensorSize, device, node)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 50, in intraReduce
+    group = dist.new_group([node*4, node*4+1,node*4+2,node*4+3])
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 3544, in new_group
+    _store_based_barrier(global_rank, default_store, timeout)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 456, in _store_based_barrier
+    worker_count = store.add(store_key, 0)
+RuntimeError: Broken pipe
+Traceback (most recent call last):
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+Traceback (most recent call last):
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 85, in <module>
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+    main()
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 79, in main
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 18, in run
+    run(n_ranks, rank)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 18, in run
+    time  = intraReduce(tensorSize, device, node)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 50, in intraReduce
+    time  = intraReduce(tensorSize, device, node)
+  File "/global/u1/b/bchan728/BandwidthTest/allReduceTest.py", line 50, in intraReduce
+    group = dist.new_group([node*4, node*4+1,node*4+2,node*4+3])
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 3544, in new_group
+    group = dist.new_group([node*4, node*4+1,node*4+2,node*4+3])
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 3544, in new_group
+    _store_based_barrier(global_rank, default_store, timeout)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 456, in _store_based_barrier
+    _store_based_barrier(global_rank, default_store, timeout)
+  File "/global/common/software/nersc/pm-2022q4/sw/pytorch/2.0.1/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 456, in _store_based_barrier
+    worker_count = store.add(store_key, 0)
+RuntimeError: Connection reset by peer
+    worker_count = store.add(store_key, 0)
+RuntimeError: Connection reset by peer
+srun: error: nid001572: task 5: Exited with exit code 1
+srun: Terminating StepId=30403925.0
+srun: error: nid001569: task 0: Exited with exit code 1
+slurmstepd: error: *** STEP 30403925.0 ON nid001569 CANCELLED AT 2024-09-13T17:04:17 ***
+srun: error: nid002953: tasks 13,15: Exited with exit code 1
+srun: error: nid001572: task 6: Exited with exit code 1
+srun: error: nid001569: task 3: Exited with exit code 1
+srun: error: nid002952: task 11: Exited with exit code 1
+srun: error: nid001569: task 2: Exited with exit code 1
+srun: error: nid001572: tasks 4,7: Exited with exit code 1
+srun: error: nid002952: task 10: Exited with exit code 1
+srun: error: nid001569: task 1: Exited with exit code 1
+srun: error: nid002953: tasks 12,14: Exited with exit code 1
+srun: error: nid002952: task 9: Exited with exit code 1
+srun: error: nid002952: task 8: Exited with exit code 1
+BREAK
